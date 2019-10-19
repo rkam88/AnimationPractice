@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <Button
+        android:id="@+id/animation_drawable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/animation_drawable"
+        android:layout_margin="@dimen/margin_default" />
+
+    <Button
+        android:id="@+id/view_animations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/view_animations"
+        android:layout_margin="@dimen/margin_default" />
+
+    <Button
+        android:id="@+id/value_animations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/value_animations"
+        android:layout_margin="@dimen/margin_default" />
+
+    <Button
+        android:id="@+id/object_animations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/object_animations"
+        android:layout_margin="@dimen/margin_default" />
+
+    <Button
+        android:id="@+id/custom_view_animations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/custom_view_animations"
+        android:layout_margin="@dimen/margin_default" />
+
+</LinearLayout>
