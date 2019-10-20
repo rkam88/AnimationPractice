@@ -16,8 +16,5 @@ public class AnimationDrawableActivity extends AppCompatActivity {
 
         ImageView imageView = findViewById(R.id.image_view);
         ((AnimationDrawable) imageView.getDrawable()).start();
-//        imageView.post(
-//                () -> ((AnimationDrawable) imageView.getDrawable()).start()
-//        );
     }
 }

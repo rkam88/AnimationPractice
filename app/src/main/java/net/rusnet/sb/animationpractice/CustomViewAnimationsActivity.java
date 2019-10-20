@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CustomViewAnimationsActivity extends AppCompatActivity {
 
+    private Animator mAnimator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,7 @@ public class CustomViewAnimationsActivity extends AppCompatActivity {
         );
 
 
-        configure(progressAnimator).start();
+        mAnimator = configure(progressAnimator);
     }
 
     private Animator configure(ObjectAnimator animator) {
@@ -32,5 +34,17 @@ public class CustomViewAnimationsActivity extends AppCompatActivity {
         animator.setRepeatMode(ObjectAnimator.RESTART);
         animator.setRepeatCount(ObjectAnimator.INFINITE);
         return animator;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAnimator.start();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAnimator.end();
     }
 }
