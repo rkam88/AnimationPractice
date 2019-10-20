@@ -6,6 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="financeProgressStyle">@style/FinanceProgressDefaultStyle</item>
+    </style>
+
+    <style name="FinanceProgressDefaultStyle">
+        <item name="progress">42</item>
+        <item name="color">@color/colorAccent</item>
+        <item name="textSize">@dimen/defaultTextSize</item>
     </style>
 
 </resources>
