@@ -1,10 +1,12 @@
 package net.rusnet.sb.animationpractice;
 
+import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.vectordrawable.graphics.drawable.AnimatorInflaterCompat;
 
 public class ValueAnimationsActivity extends AppCompatActivity {
 
@@ -13,29 +15,23 @@ public class ValueAnimationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_value_animations);
 
-
         ImageView imageView = findViewById(R.id.image_view);
 
-        ValueAnimator alphaAnimator = ValueAnimator.ofFloat(0f, 1f);
-        configureAnimation(alphaAnimator);
-        alphaAnimator.addUpdateListener(
-                animation -> imageView.setAlpha((Float) animation.getAnimatedValue())
+        ValueAnimator animatorXmlAlpha = (ValueAnimator) AnimatorInflaterCompat.
+                loadAnimator(this, R.animator.value_animator_alpha);
+        animatorXmlAlpha.addUpdateListener(
+                animator -> imageView.setAlpha((Float) animator.getAnimatedValue())
         );
-        alphaAnimator.start();
 
-        float length = (-1f) * getResources().getDimension(R.dimen.y_length);
-        ValueAnimator translationYAnimator = ValueAnimator.ofFloat(0f, length);
-        configureAnimation(translationYAnimator);
-        translationYAnimator.addUpdateListener(
-                animation -> imageView.setTranslationY((Float) translationYAnimator.getAnimatedValue())
+        ValueAnimator animatorXmlTranslation = (ValueAnimator) AnimatorInflaterCompat.
+                loadAnimator(this, R.animator.value_animator_translation);
+        animatorXmlTranslation.addUpdateListener(
+                animator -> imageView.setTranslationY((-1f) * ((float) animatorXmlTranslation.getAnimatedValue()))
         );
-        translationYAnimator.start();
 
-    }
+        AnimatorSet set = new AnimatorSet();
+        set.playTogether(animatorXmlAlpha, animatorXmlTranslation);
+        set.start();
 
-    private void configureAnimation(ValueAnimator animator) {
-        animator.setRepeatMode(ValueAnimator.RESTART);
-        animator.setRepeatCount(20);
-        animator.setDuration(800);
     }
 }
